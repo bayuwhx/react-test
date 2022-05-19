@@ -49,6 +49,12 @@ export default class Car extends Component {
         console.info(response.data);
     }
 
+    deletePosts = async() => {
+        const response = await axios.delete('https://jsonplaceholder.typicode.com/posts/1');
+
+        console.info(response.data);
+    }
+
     render() {
         return (
             <div>
@@ -68,7 +74,8 @@ export default class Car extends Component {
                                 <td>{value.name}</td>
                                 <td>{value.username}</td>
                                 <td>
-                                    <Button varian='primary' onClick={this.updatePostById}>Edit data</Button>
+                                    <Button variant='primary' onClick={this.updatePostById}>Edit data</Button>
+                                    <Button variant='danger' onClick={this.deletePosts}>Delete</Button>
                                 </td>
                             </tr>
                             )
